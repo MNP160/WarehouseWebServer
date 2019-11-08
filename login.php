@@ -39,20 +39,28 @@ try{
 
         $rows=$result->fetchAll();
        
-   
-      if($rows!==NULL){
-          $_SESSION["email"]=$email;
+
+       if($email=="admin@gmail.com"&&$pw=="admin"){
+        $_SESSION["email"]=$email;
           
-          header("location: Catalogue.php");
-          exit();
-      }
+        header("location: adminPage.php");
+        exit();
+       }
+
       else{
-        echo "<div class='loginForm'>
-        <h3>Username/password is incorrect.</h3>
-        <br/>Click here to <a href='login.php'>Login</a></div>";
+             if($rows!==NULL){
+                 $_SESSION["email"]=$email;
+          
+                   header("location: Catalogue.php");
+                   exit();
+      }
+                  else{
+                  echo "<div class='loginForm'>
+                  <h3>Username/password is incorrect.</h3>
+                  br/>Click here to <a href='login.php'>Login</a></div>";
         
       }
-      
+    }
 
     }
     catch(Exception $e){

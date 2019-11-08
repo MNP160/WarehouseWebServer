@@ -42,6 +42,7 @@ $statement->bindValue(2, $passwordHash);
 $statement->bindValue(3, $address);
 
 $statement->execute();
+header("location: Catalogue.php");
 
 //$connection->NULL;
 }
